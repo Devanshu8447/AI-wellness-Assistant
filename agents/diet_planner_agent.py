@@ -1,18 +1,18 @@
 import streamlit as st
 
-# from langchain.llms import HuggingFaceHub
+
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
+
 load_dotenv()
 
-# Initialize model globally
+
 llm = HuggingFaceEndpoint(
-    repo_id="deepseek-ai/DeepSeek-R1",  # Change to any supported HF model
+    repo_id="deepseek-ai/DeepSeek-R1",  
     task="conversational",
-    ##model_kwargs={"temperature": 0.7, "max_new_tokens": 512}
+    
 )
 model = ChatHuggingFace(llm=llm)
 
@@ -33,7 +33,6 @@ def run_diet_planner_agent():
         submitted = st.form_submit_button("Generate Diet Plan")
 
     if submitted:
-        # Format the prompt
         prompt = f"""You are a certified dietician. Generate a one-day meal plan based on:
 - Age: {age}
 - Gender: {gender}
