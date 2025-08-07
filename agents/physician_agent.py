@@ -3,14 +3,13 @@ from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
+
 load_dotenv()
 
-# Initialize the HuggingFace model once
+
 llm = HuggingFaceEndpoint(
-    repo_id="deepseek-ai/DeepSeek-R1",  # Change to any supported HF model
+    repo_id="deepseek-ai/DeepSeek-R1",  
     task="conversational",
-    ##model_kwargs={"temperature": 0.7, "max_new_tokens": 512}
 )
 model = ChatHuggingFace(llm=llm)
 
