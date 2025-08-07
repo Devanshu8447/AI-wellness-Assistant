@@ -1,18 +1,13 @@
 import streamlit as st
-
-# from langchain.llms import HuggingFaceHub
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 import os
 from dotenv import load_dotenv
 
-# Load environment
 load_dotenv()
 
-# Global model
 llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-R1",
     task="conversational",
-    ##model_kwargs={"temperature": 0.7, "max_new_tokens": 512}
 )
 model = ChatHuggingFace(llm=llm)
 
