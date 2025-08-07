@@ -31,7 +31,7 @@ def run_physician_agent():
         submitted = st.form_submit_button("Generate Prescription")
 
     if submitted:
-        # Combine all responses into a prompt
+        
         prompt = "\n".join([f"{questions[i]} {responses[i]}" for i in range(5)])
         prompt = (
             """
@@ -50,7 +50,7 @@ Do not explain your thinking. Just give the response you would say to the user.
             + prompt
         )
 
-        # Get response from LLM
+        
         result = model.invoke(prompt)
         st.success("Prescription:")
         st.write(result.content)
